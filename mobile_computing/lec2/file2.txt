@@ -1,1 +1,2 @@
 file 2 matter of merge conflict from loacal to central repository is resolved.
+it is at new branch.
