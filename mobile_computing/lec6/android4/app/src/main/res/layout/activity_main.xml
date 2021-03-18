@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back1"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="﷽"
+        android:padding="10dp"
+        android:textAlignment="textEnd"
+        android:textColor="#D6B44E"
+        android:textSize="80dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/textViewCounter"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCounter"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        android:background="#28FFFFFF"
+        android:text="0"
+        android:padding="10dp"
+        android:textColor="#fff"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonCount"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="184dp"
+        android:background="@drawable/button_gradient"
+        android:onClick="increaseNumber"
+        android:text="Count"
+        android:textColor="#5E4704"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonActivity3"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/button_gradient"
+        android:text="Activity2"
+        android:textColor="#5E4704"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:onClick="moveActivity2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonActivity2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonActivity2"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/button_gradient"
+        android:text="Activity3"
+        android:onClick="moveActivity3"
+        android:textColor="#5E4704"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ButtonActivity3" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
