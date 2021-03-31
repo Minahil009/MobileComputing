@@ -71,9 +71,10 @@
     <ListView
         android:id="@+id/listViewCustomer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintRight_toRightOf="@id/buttonAdd"
+        app:layout_constraintLeft_toLeftOf="@id/buttonViewAll"
         app:layout_constraintTop_toBottomOf="@+id/buttonAdd" />
 
 

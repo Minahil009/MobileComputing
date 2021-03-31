@@ -3,7 +3,7 @@ package com.example.sqlite1;
 public class CustomerModel {
     private String name;
 
-    public CustomerModel(String name, int age, boolean isActive, int id) {
+    public CustomerModel(int id,String name, int age, boolean isActive) {
         this.name = name;
         this.age = age;
         this.isActive = isActive;
