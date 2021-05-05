@@ -31,16 +31,22 @@
         android:textColor="@color/black"
         android:hint="Message" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:onClick="sendOnChannel1"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/purple_gradiant"
         android:text="Send on Channel 1" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:onClick="sendOnChannel2"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/purple_gradiant"
         android:text="Send on Channel 2" />
 
 </LinearLayout>
