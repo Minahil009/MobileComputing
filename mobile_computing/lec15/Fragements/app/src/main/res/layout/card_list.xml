@@ -7,17 +7,17 @@
     android:id="@+id/friendDetailLayout">
 
     <ImageView
-        android:id="@+id/imageViewFriendPicture"
+        android:id="@+id/personPicture"
         android:layout_width="80dp"
         android:layout_height="80dp"
 
         android:src="@drawable/ic_baseline_person_24"
-        app:layout_constraintEnd_toStartOf="@+id/textViewFriendName"
+        app:layout_constraintEnd_toStartOf="@+id/personName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewFriendName"
+        android:id="@+id/personName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -26,11 +26,11 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:padding="2dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewFriendPicture"
-        app:layout_constraintTop_toTopOf="@+id/imageViewFriendPicture" />
+        app:layout_constraintStart_toEndOf="@+id/personPicture"
+        app:layout_constraintTop_toTopOf="@+id/personPicture" />
 
     <TextView
-        android:id="@+id/textViewDate"
+        android:id="@+id/Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -38,8 +38,8 @@
         android:textStyle="bold"
         android:textColor="#6F6F70"
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewFriendName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFriendName" />
+        app:layout_constraintStart_toStartOf="@+id/personName"
+        app:layout_constraintTop_toBottomOf="@+id/personName" />
 
     <View
         android:id="@+id/divider"
@@ -50,10 +50,10 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFriendPicture" />
+        app:layout_constraintTop_toBottomOf="@+id/personPicture" />
 
     <TextView
-        android:id="@+id/textViewCity"
+        android:id="@+id/City"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
@@ -61,6 +61,6 @@
         android:textColor="#6F6F70"
         android:textSize="15dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textViewDate"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+        app:layout_constraintStart_toStartOf="@+id/Date"
+        app:layout_constraintTop_toBottomOf="@+id/Date" />
 </androidx.constraintlayout.widget.ConstraintLayout>

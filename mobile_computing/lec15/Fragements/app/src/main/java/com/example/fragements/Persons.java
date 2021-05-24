@@ -2,12 +2,14 @@ package com.example.fragements;
 
 public class Persons {
     private int id;
+    private int imageUrl;
     private String name;
     private int dob;
     private String city;
 
     public Persons(int id, String name, int dob, String city) {
         this.id = id;
+        this.imageUrl = imageUrl;
         this.name = name;
         this.dob = dob;
         this.city = city;
@@ -20,6 +22,14 @@ public class Persons {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(int imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {

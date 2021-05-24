@@ -3,17 +3,22 @@ package com.example.fragements;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ftab1#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ftab1 extends Fragment {
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    ArrayList<Persons> personsArrayList;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +57,23 @@ public class ftab1 extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            recyclerView=recyclerView.findViewById(R.id.recyclerView);
+            personsArrayList=new ArrayList<>();
+
+            int[] id={1,2,3,4,5,6,7,8};
+            int[] images={R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24};
+            String[] names={"Ali", "Asad", "Ammar", "Aleena","Zamal", "Sarim", "Umair", "Afifa"};
+            int[] date={1990, 1998, 1987, 1876, 1999, 1977, 1999, 1998};
+            String[] city={"lahore", "Islamabad", "Karachi", "lahore", "Islamabad", "Muree", "Islamabad", "Lahore"};
+
+            for(int i=0;i<8;i++)
+            {
+                personsArrayList.add(new Persons(id[i], names[i], date[i], city[i]));
+            }
+            RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(personsArrayList);
+            recyclerView.setAdapter(recyclerViewAdapter);
+
         }
     }
 
