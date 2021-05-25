@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     ArrayList<Persons> personsList;
+    OnNoteListener onNoteListener;
 
-    public RecyclerViewAdapter(ArrayList<Persons> personsList) {
+    public RecyclerViewAdapter(ArrayList<Persons> personsList, OnNoteListener onNoteListener) {
         this.personsList = personsList;
+        this.onNoteListener=onNoteListener;
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_list, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, onNoteListener);
     }
 
     @Override
@@ -41,15 +42,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return personsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageView;
         TextView name, dob, city;
-        public ViewHolder(@NonNull View itemView) {
+        OnNoteListener onNoteListener;
+
+        public ViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
             super(itemView);
-            imageView=itemView.findViewById(R.id.personPicture);
-            name=itemView.findViewById(R.id.personName);
-            dob=itemView.findViewById(R.id.Date);
-            city=itemView.findViewById(R.id.City);
+            imageView = itemView.findViewById(R.id.personPicture);
+            name = itemView.findViewById(R.id.personName);
+            dob = itemView.findViewById(R.id.Date);
+            city = itemView.findViewById(R.id.City);
+            this.onNoteListener=onNoteListener;
+            itemView.setOnClickListener(this);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.onNoteClick(getAdapterPosition());
         }
     }
+    public interface OnNoteListener {
+        void onNoteClick(int position);
+    }
+
 }

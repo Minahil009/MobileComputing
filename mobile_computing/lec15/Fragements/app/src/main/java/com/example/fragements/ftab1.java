@@ -1,21 +1,20 @@
 package com.example.fragements;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ftab1 extends Fragment {
+public class ftab1 extends Fragment implements RecyclerViewAdapter.OnNoteListener {
     private RecyclerView recyclerView;
     ArrayList<Persons> personsArrayList;
 
@@ -28,7 +27,6 @@ public class ftab1 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
 
 
     /**
@@ -57,7 +55,6 @@ public class ftab1 extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
 
 
-
         }
     }
 
@@ -66,7 +63,7 @@ public class ftab1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_ftab1, container, false);
+        View view = inflater.inflate(R.layout.fragment_ftab1, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         personsArrayList = new ArrayList<>();
 
@@ -79,8 +76,15 @@ public class ftab1 extends Fragment {
         for (int i = 0; i < 8; i++) {
             personsArrayList.add(new Persons(images[i], names[i], date[i], city[i]));
         }
-        RecyclerViewAdapter recyclerClassAdapter=new RecyclerViewAdapter(personsArrayList);
+        RecyclerViewAdapter recyclerClassAdapter = new RecyclerViewAdapter(personsArrayList,this);
         recyclerView.setAdapter(recyclerClassAdapter);
         return view;
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+        personsArrayList.get(position);
+        Intent intent=new Intent(getActivity(), secondActivity.class);
+        startActivity(intent);
     }
 }
