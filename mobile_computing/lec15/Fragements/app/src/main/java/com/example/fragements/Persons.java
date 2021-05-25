@@ -7,7 +7,7 @@ public class Persons {
     private int dob;
     private String city;
 
-    public Persons(int id, String name, int dob, String city) {
+    public Persons(int imageUrl, String name, int dob, String city) {
         this.id = id;
         this.imageUrl = imageUrl;
         this.name = name;

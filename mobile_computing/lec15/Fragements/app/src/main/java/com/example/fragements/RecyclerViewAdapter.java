@@ -32,7 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.imageView.setImageResource(personsList.get(position).getImageUrl());
         holder.name.setText(personsList.get(position).getName());
-        holder.dob.setText(personsList.get(position).getDob());
+        holder.dob.setText(String.valueOf(personsList.get(position).getDob()));
         holder.city.setText(personsList.get(position).getCity());
     }
 

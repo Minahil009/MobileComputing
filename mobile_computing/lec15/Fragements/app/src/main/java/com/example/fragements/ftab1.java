@@ -2,6 +2,8 @@ package com.example.fragements;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +17,6 @@ import java.util.Arrays;
 
 public class ftab1 extends Fragment {
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     ArrayList<Persons> personsArrayList;
 
 
@@ -29,9 +29,7 @@ public class ftab1 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ftab1() {
-        // Required empty public constructor
-    }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -52,35 +50,37 @@ public class ftab1 extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
 
-            recyclerView=recyclerView.findViewById(R.id.recyclerView);
-            personsArrayList=new ArrayList<>();
 
-            int[] id={1,2,3,4,5,6,7,8};
-            int[] images={R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24,R.drawable.ic_baseline_person_24};
-            String[] names={"Ali", "Asad", "Ammar", "Aleena","Zamal", "Sarim", "Umair", "Afifa"};
-            int[] date={1990, 1998, 1987, 1876, 1999, 1977, 1999, 1998};
-            String[] city={"lahore", "Islamabad", "Karachi", "lahore", "Islamabad", "Muree", "Islamabad", "Lahore"};
-
-            for(int i=0;i<8;i++)
-            {
-                personsArrayList.add(new Persons(id[i], names[i], date[i], city[i]));
-            }
-            RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(personsArrayList);
-            recyclerView.setAdapter(recyclerViewAdapter);
 
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ftab1, container, false);
+        View view= inflater.inflate(R.layout.fragment_ftab1, container, false);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        personsArrayList = new ArrayList<>();
+
+
+        int[] images = {R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24};
+        String[] names = {"Ali", "Asad", "Ammar", "Aleena", "Zamal", "Sarim", "Umair", "Afifa"};
+        int[] date = {1990, 1998, 1987, 1876, 1999, 1977, 1999, 1998};
+        String[] city = {"lahore", "Islamabad", "Karachi", "lahore", "Islamabad", "Muree", "Islamabad", "Lahore"};
+
+        for (int i = 0; i < 8; i++) {
+            personsArrayList.add(new Persons(images[i], names[i], date[i], city[i]));
+        }
+        RecyclerViewAdapter recyclerClassAdapter=new RecyclerViewAdapter(personsArrayList);
+        recyclerView.setAdapter(recyclerClassAdapter);
+        return view;
     }
 }
