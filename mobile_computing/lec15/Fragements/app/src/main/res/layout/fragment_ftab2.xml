@@ -12,12 +12,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:background="@color/teal_200"
+            android:background="#B65576"
             android:text="Status"
-            android:textColor="@color/teal_700"
+            android:textColor="#63273B"
             android:textSize="25dp" />
     </LinearLayout>
 </FrameLayout>

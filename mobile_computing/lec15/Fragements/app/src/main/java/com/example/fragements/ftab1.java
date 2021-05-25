@@ -71,7 +71,7 @@ public class ftab1 extends Fragment {
         personsArrayList = new ArrayList<>();
 
 
-        int[] images = {R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24, R.drawable.ic_baseline_person_24};
+        int[] images = {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5, R.drawable.profile6, R.drawable.profile7, R.drawable.profile8};
         String[] names = {"Ali", "Asad", "Ammar", "Aleena", "Zamal", "Sarim", "Umair", "Afifa"};
         int[] date = {1990, 1998, 1987, 1876, 1999, 1977, 1999, 1998};
         String[] city = {"lahore", "Islamabad", "Karachi", "lahore", "Islamabad", "Muree", "Islamabad", "Lahore"};

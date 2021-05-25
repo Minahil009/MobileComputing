@@ -9,16 +9,16 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
+        android:background="#B65576"
         app:title="Fragments"
-        app:titleTextColor="@color/white"
+        app:titleTextColor="@color/black"
         app:navigationIcon="@drawable/toolbar_icon"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
+        android:background="#B65576"
         app:tabTextColor="@color/black"
         app:tabSelectedTextColor="@color/white"
         app:tabIndicatorColor="@color/white">
