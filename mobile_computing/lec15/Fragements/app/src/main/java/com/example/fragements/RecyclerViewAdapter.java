@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,9 +16,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     ArrayList<Persons> personsList;
     OnNoteListener onNoteListener;
 
-    public RecyclerViewAdapter(ArrayList<Persons> personsList, OnNoteListener onNoteListener) {
+    //TODO add argument onNoteListener and unComment data
+    public RecyclerViewAdapter(ArrayList<Persons> personsList) {
         this.personsList = personsList;
-        this.onNoteListener=onNoteListener;
+        //this.onNoteListener=onNoteListener;
     }
 
 
@@ -26,7 +28,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_list, parent, false);
-        return new ViewHolder(view, onNoteListener);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -50,14 +52,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView name, dob, city;
         OnNoteListener onNoteListener;
 
-        public ViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
+        //TODO add argument onNoteListener and unComment data
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.personPicture);
             name = itemView.findViewById(R.id.personName);
             dob = itemView.findViewById(R.id.Date);
             city = itemView.findViewById(R.id.City);
-            this.onNoteListener=onNoteListener;
-            itemView.setOnClickListener(this);
+           // this.onNoteListener=onNoteListener;
+            //itemView.setOnClickListener(this);
         }
 
 

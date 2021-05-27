@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +17,9 @@ import java.util.ArrayList;
 
 public class ftab1 extends Fragment implements RecyclerViewAdapter.OnNoteListener {
     private RecyclerView recyclerView;
+    SearchView searchView;
     ArrayList<Persons> personsArrayList;
+    ArrayList<Persons> personsListFull;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -65,7 +68,39 @@ public class ftab1 extends Fragment implements RecyclerViewAdapter.OnNoteListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ftab1, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
+        searchView = view.findViewById(R.id.searchView);
         personsArrayList = new ArrayList<>();
+        personsListFull= new ArrayList<>(personsArrayList);
+        if (searchView != null) {
+            // progressBar.setVisibility(View.INVISIBLE);
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    filter(newText);
+                    return true;
+                }
+
+                private void filter(String str) {
+                    personsListFull = new ArrayList<Persons>();
+                    if(personsArrayList!=null) {
+                        for (Persons person : personsArrayList) {
+                            if (person.getName().toLowerCase().contains(str.toLowerCase())) {
+                                personsListFull.add(person);
+                            }
+                        }
+                        //TODO add parameter onNoteListener
+                        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(personsListFull);
+                        recyclerView.setAdapter(recyclerViewAdapter);
+                    }
+                }
+            });
+        }
+
 
 
         int[] images = {R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5, R.drawable.profile6, R.drawable.profile7, R.drawable.profile8};
@@ -76,7 +111,8 @@ public class ftab1 extends Fragment implements RecyclerViewAdapter.OnNoteListene
         for (int i = 0; i < 8; i++) {
             personsArrayList.add(new Persons(images[i], names[i], date[i], city[i]));
         }
-        RecyclerViewAdapter recyclerClassAdapter = new RecyclerViewAdapter(personsArrayList,this);
+        //TODO add parameter onNoteListener
+        RecyclerViewAdapter recyclerClassAdapter = new RecyclerViewAdapter(personsArrayList);
         recyclerView.setAdapter(recyclerClassAdapter);
         return view;
     }
@@ -87,4 +123,6 @@ public class ftab1 extends Fragment implements RecyclerViewAdapter.OnNoteListene
         Intent intent=new Intent(getActivity(), secondActivity.class);
         startActivity(intent);
     }
+
+
 }
